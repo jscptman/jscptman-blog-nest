@@ -5,6 +5,5 @@ module.exports = {
   rules: {
     'body-leading-blank': [2, 'never'],
     'footer-leading-blank': [2, 'never'],
-    'subject-case': [2, 'always', 'lower-case'],
   },
 };

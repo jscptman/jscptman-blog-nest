@@ -1,0 +1,24 @@
+error: Jan-06-2023 15:38:40: 		lala
+error: Jan-06-2023 16:10:12: AdminLoginService 		lala jiji
+error: Jan-06-2023 16:19:12: AdminLoginService 		 Error: 
+    at AdminLoginService.getHello (/Users/jscptman/vscode-project/jscptman-blog-nest/src/admin/login/login.service.ts:6:19)
+    at AdminLoginController.getHello (/Users/jscptman/vscode-project/jscptman-blog-nest/src/admin/login/login.controller.ts:10:35)
+    at /Users/jscptman/vscode-project/jscptman-blog-nest/node_modules/.pnpm/registry.npmmirror.com+@nestjs+core@9.2.1_e6la6qvsclaae2becwjnmfvsuq/node_modules/@nestjs/core/router/router-execution-context.js:38:29
+    at InterceptorsConsumer.transformDeferred (/Users/jscptman/vscode-project/jscptman-blog-nest/node_modules/.pnpm/registry.npmmirror.com+@nestjs+core@9.2.1_e6la6qvsclaae2becwjnmfvsuq/node_modules/@nestjs/core/interceptors/interceptors-consumer.js:31:33)
+    at /Users/jscptman/vscode-project/jscptman-blog-nest/node_modules/.pnpm/registry.npmmirror.com+@nestjs+core@9.2.1_e6la6qvsclaae2becwjnmfvsuq/node_modules/@nestjs/core/interceptors/interceptors-consumer.js:15:53
+    at Observable._subscribe (/Users/jscptman/vscode-project/jscptman-blog-nest/node_modules/.pnpm/registry.npmmirror.com+rxjs@7.8.0/node_modules/rxjs/src/internal/observable/defer.ts:55:15)
+    at Observable._trySubscribe (/Users/jscptman/vscode-project/jscptman-blog-nest/node_modules/.pnpm/registry.npmmirror.com+rxjs@7.8.0/node_modules/rxjs/src/internal/Observable.ts:244:19)
+    at /Users/jscptman/vscode-project/jscptman-blog-nest/node_modules/.pnpm/registry.npmmirror.com+rxjs@7.8.0/node_modules/rxjs/src/internal/Observable.ts:234:18
+    at Object.errorContext (/Users/jscptman/vscode-project/jscptman-blog-nest/node_modules/.pnpm/registry.npmmirror.com+rxjs@7.8.0/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)
+    at Observable.subscribe (/Users/jscptman/vscode-project/jscptman-blog-nest/node_modules/.pnpm/registry.npmmirror.com+rxjs@7.8.0/node_modules/rxjs/src/internal/Observable.ts:220:5)
+error: Jan-06-2023 16:21:32: AdminLoginService 		This is ErrorMessage Error: This is ErrorMessage
+    at AdminLoginService.getHello (/Users/jscptman/vscode-project/jscptman-blog-nest/src/admin/login/login.service.ts:6:19)
+    at AdminLoginController.getHello (/Users/jscptman/vscode-project/jscptman-blog-nest/src/admin/login/login.controller.ts:10:35)
+    at /Users/jscptman/vscode-project/jscptman-blog-nest/node_modules/.pnpm/registry.npmmirror.com+@nestjs+core@9.2.1_e6la6qvsclaae2becwjnmfvsuq/node_modules/@nestjs/core/router/router-execution-context.js:38:29
+    at InterceptorsConsumer.transformDeferred (/Users/jscptman/vscode-project/jscptman-blog-nest/node_modules/.pnpm/registry.npmmirror.com+@nestjs+core@9.2.1_e6la6qvsclaae2becwjnmfvsuq/node_modules/@nestjs/core/interceptors/interceptors-consumer.js:31:33)
+    at /Users/jscptman/vscode-project/jscptman-blog-nest/node_modules/.pnpm/registry.npmmirror.com+@nestjs+core@9.2.1_e6la6qvsclaae2becwjnmfvsuq/node_modules/@nestjs/core/interceptors/interceptors-consumer.js:15:53
+    at Observable._subscribe (/Users/jscptman/vscode-project/jscptman-blog-nest/node_modules/.pnpm/registry.npmmirror.com+rxjs@7.8.0/node_modules/rxjs/src/internal/observable/defer.ts:55:15)
+    at Observable._trySubscribe (/Users/jscptman/vscode-project/jscptman-blog-nest/node_modules/.pnpm/registry.npmmirror.com+rxjs@7.8.0/node_modules/rxjs/src/internal/Observable.ts:244:19)
+    at /Users/jscptman/vscode-project/jscptman-blog-nest/node_modules/.pnpm/registry.npmmirror.com+rxjs@7.8.0/node_modules/rxjs/src/internal/Observable.ts:234:18
+    at Object.errorContext (/Users/jscptman/vscode-project/jscptman-blog-nest/node_modules/.pnpm/registry.npmmirror.com+rxjs@7.8.0/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)
+    at Observable.subscribe (/Users/jscptman/vscode-project/jscptman-blog-nest/node_modules/.pnpm/registry.npmmirror.com+rxjs@7.8.0/node_modules/rxjs/src/internal/Observable.ts:220:5)

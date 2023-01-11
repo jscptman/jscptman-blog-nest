@@ -1,0 +1,1 @@
+export { getRandomIntInclusive } from './number';

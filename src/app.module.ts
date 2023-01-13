@@ -47,7 +47,7 @@ import { APP_GUARD } from '@nestjs/core';
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       useFactory: async (configService: ConfigService<ConfigOptions, true>) => {
-        const { host, port, ttl } = configService.get('db.redis', {
+        const { host, port } = configService.get('db.redis', {
           infer: true,
         });
         const store = await redisStore({
@@ -55,8 +55,8 @@ import { APP_GUARD } from '@nestjs/core';
             host,
             port,
           },
-          ttl,
-          database: 1,
+          ttl: 5,
+          database: 0,
         });
         return {
           store: () => store,

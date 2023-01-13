@@ -7,6 +7,7 @@ import { PasswordStrategy } from './password.strategy';
 import { JwtStrategy } from './jwt.strategy';
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
+import { CustomCacheModule } from 'src/common/cache/custom-cache.module';
 @Module({
   imports: [
     AdminUsersModule,
@@ -17,6 +18,7 @@ import { JwtModule } from '@nestjs/jwt';
         return configService.get('jwtOptions', { infer: true });
       },
     }),
+    CustomCacheModule,
   ],
   providers: [AuthProvider, PasswordStrategy, JwtStrategy],
   exports: [AuthProvider, PasswordStrategy, JwtStrategy],

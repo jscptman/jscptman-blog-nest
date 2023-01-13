@@ -23,7 +23,7 @@ export default class UserService {
     return this.usersRepository.findOneBy({ uid });
   }
 
-  findOneByUsername(username: string): Promise<UsersEntity | null> {
+  findOneByUsername(username = ''): Promise<UsersEntity | null> {
     return this.usersRepository.findOneBy({ username });
   }
 

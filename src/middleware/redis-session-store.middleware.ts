@@ -15,11 +15,11 @@ export const redisSessionStoreFactory = (
     legacyMode: true,
     socket: otherConfig,
     name,
+    database: 3,
   });
   redisClient.connect().catch(console.error);
   const RedisStore = s(session);
   const redisStore = new RedisStore({
-    db: 0,
     client: redisClient as unknown as s.Client,
   });
   return session({

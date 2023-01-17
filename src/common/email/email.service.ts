@@ -1,3 +1,13 @@
+/*
+ * @Author: jscptman jscptman@163.com
+ * @Date: 2023-01-09 17:54:13
+ * @LastEditors: jscptman jscptman@163.com
+ * @LastEditTime: 2023-01-17 17:21:26
+ * @FilePath: /jscptman-blog-nest/src/common/email/email.service.ts
+ * @Description:
+ *
+ * Copyright (c) 2023 by jscptman jscptman@163.com, All Rights Reserved.
+ */
 import { Injectable } from '@nestjs/common';
 import { createTransport } from 'nodemailer';
 import { ConfigService } from '@nestjs/config';
@@ -12,15 +22,7 @@ export class EmailService {
       configService.get('emailOptions.defaultMessageOptions'),
     );
   }
-  verifyTransport() {
-    this.transport.verify(function (error) {
-      if (error) {
-        console.log(error);
-      } else {
-        console.log('Server is ready to take our messages');
-      }
-    });
-  }
+
   async sendEmail(verifyCode: number, toAddress: string) {
     const result: {
       verifyCode: number;

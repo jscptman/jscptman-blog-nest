@@ -1,3 +1,13 @@
+/*
+ * @Author: jscptman jscptman@163.com
+ * @Date: 2023-01-09 22:32:51
+ * @LastEditors: jscptman jscptman@163.com
+ * @LastEditTime: 2023-01-15 20:10:21
+ * @FilePath: /jscptman-blog-nest/src/common/email/email.template.ts
+ * @Description:
+ *
+ * Copyright (c) 2023 by jscptman jscptman@163.com, All Rights Reserved.
+ */
 export function createEmailTemplate(randomNumber: number): string {
   const randomNumberStr = randomNumber.toString();
   return `<!DOCTYPE html>
@@ -57,7 +67,7 @@ export function createEmailTemplate(randomNumber: number): string {
           <div>
             <div style="font-size: 20px; text-align: left; letter-spacing: 2px">
               <p style="text-indent: 2em; padding: 4px 0; padding: 0 20px">
-                欢迎光临我的博客, 请复制上方验证码以完成注册.
+                欢迎光临我的博客, 请复制上方验证码以完成注册, 验证码有效期为10分钟.
               </p>
               <p
                 style="

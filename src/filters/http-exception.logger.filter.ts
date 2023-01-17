@@ -1,3 +1,13 @@
+/*
+ * @Author: jscptman jscptman@163.com
+ * @Date: 2022-12-29 22:54:03
+ * @LastEditors: jscptman jscptman@163.com
+ * @LastEditTime: 2023-01-16 12:00:43
+ * @FilePath: /jscptman-blog-nest/src/filters/http-exception.logger.filter.ts
+ * @Description:
+ *
+ * Copyright (c) 2023 by jscptman jscptman@163.com, All Rights Reserved.
+ */
 import {
   ExceptionFilter,
   Catch,
@@ -11,10 +21,6 @@ import CustomException from 'src/common/exceptions/custom-exceptions.classes';
 export class HttpExceptionsFilter implements ExceptionFilter {
   constructor(private readonly loggerService: LoggerProvider) {}
   catch(exception: HttpException | CustomException, host: ArgumentsHost) {
-    console.log(
-      '🚀 ~ file: http-exception.logger.filter.ts:14 ~ HttpExceptionsFilter ~ exception',
-      exception,
-    );
     const ctx = host.switchToHttp();
     const response = ctx.getResponse();
     const request = ctx.getRequest();

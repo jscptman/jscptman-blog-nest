@@ -1,10 +1,18 @@
-import { Inject, Injectable, CACHE_MANAGER } from '@nestjs/common';
+/*
+ * @Author: jscptman jscptman@163.com
+ * @Date: 2023-01-13 12:07:39
+ * @LastEditors: jscptman jscptman@163.com
+ * @LastEditTime: 2023-01-17 13:13:55
+ * @FilePath: /jscptman-blog-nest/src/admin/login/login.service.ts
+ * @Description:
+ *
+ * Copyright (c) 2023 by jscptman jscptman@163.com, All Rights Reserved.
+ */
+import { Injectable } from '@nestjs/common';
 import { EmailService } from 'src/common/email/email.service';
 import { getRandomIntInclusive } from 'src/utils/index';
 import UserService from '../users/users.service';
-import { Cache } from 'cache-manager';
 import { AuthProvider } from 'src/auth/auth.provider';
-import { createClient } from 'redis';
 import { CustomCacheProvider } from 'src/common/cache/custom-cache.provider';
 
 @Injectable()
@@ -12,31 +20,36 @@ export default class AdminLoginService {
   constructor(
     private readonly emailService: EmailService,
     private readonly userService: UserService,
-    // @Inject(CACHE_MANAGER) private readonly cacheManager: Cache,
     private readonly customCacheProvider: CustomCacheProvider,
     private readonly authService: AuthProvider,
   ) {}
 
-  getHello(): string {
-    return 'Hello World!';
-  }
-
   async getVerificationCode(username: string) {
-    console.log(
-      '🚀 ~ file: login.service.ts:22 ~ AdminLoginService ~ getVerificationCode ~ username',
-      username,
-    );
     const randomNum = getRandomIntInclusive(100000, 999999);
     let result: null | Promise<{
       verifyCode: number;
       info: any;
     }> = null;
     await this.authService.validateUserIfExistByUsername(username);
-    // await this.cacheManager.store.set(`vc_${username}`, `${randomNum}`);
-    this.customCacheProvider
-      .getDbClient_1()
-      .set(`vc_${username}`, `${randomNum}`);
+    const client_1 = await this.customCacheProvider.getDbClient(1);
+    client_1.set(`vc_${username}`, `${randomNum}`, { EX: 6000 });
     result = Promise.resolve(this.emailService.sendEmail(randomNum, username));
     return result;
+  }
+
+  async login(
+    username: string,
+    verificationCode: string,
+    session: Record<string, any>,
+  ) {
+    await this.authService.validateByVerificationCodeAdmin(
+      username,
+      verificationCode,
+    );
+    const user = await this.authService.validateUserIfExistByUsername(username);
+    session.username = username;
+    session.roles = user.roles;
+    const client_1 = await this.customCacheProvider.getDbClient(1);
+    await client_1.del(`vc_${username}`);
   }
 }

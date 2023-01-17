@@ -4,7 +4,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigService, ConfigModule } from '@nestjs/config';
 import { ConfigOptions } from '../config/interfaces';
 import configuration from '../config';
-import { redisStore } from 'cache-manager-redis-store';
+// import { redisStore } from 'cache-manager-redis-store';
+import { redisStore } from 'cache-manager-redis-yet';
 import type { RedisClientOptions } from 'redis';
 import { RouterModule } from '@nestjs/core';
 import AdminModule from './admin/index.module';
@@ -41,25 +42,21 @@ import { APP_GUARD } from '@nestjs/core';
         };
       },
     }),
-    CacheModule.registerAsync<RedisClientOptions>({
+    CacheModule.registerAsync({
       isGlobal: true,
       inject: [ConfigService],
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       useFactory: async (configService: ConfigService<ConfigOptions, true>) => {
         const { host, port } = configService.get('db.redis', {
           infer: true,
         });
-        const store = await redisStore({
-          socket: {
-            host,
-            port,
-          },
-          ttl: 5,
-          database: 0,
-        });
         return {
-          store: () => store,
+          store: await redisStore({
+            socket: {
+              host,
+              port,
+            },
+            ttl: 5000,
+          }),
         };
       },
     }),

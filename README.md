@@ -40,4 +40,4 @@ $ pnpm test:cov
 ## Stay in touch
 
 - Author - [Jscptman](https://github.com/jscptman)
-- Email - [@nestframework](jscptman@gmail.com)
+- Email - [jscptman@gmail.com](jscptman@gmail.com)
